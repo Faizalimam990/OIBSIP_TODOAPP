@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoAPP-OIBSIP</title>
+</head>
+<style>
+    .buto{
+        padding-top: 2px;
+        margin-left: 650px;
+        
+        display: block;
+    }
+    .buto input{
+        padding: 10px;
+        margin-top: 4px;
+        margin-right: 30px;
+        width: 370px;
+
+    }
+    body{
+        background-color: rgb(10, 10, 65);
+    }
+    #sub{
+        width: 100px;
+        margin-left: 20px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    #sub:hover{
+        border-radius: 10px;
+        padding: 10px;
+        transition: 1s;
+        background-color: aqua;
+        color: whitesmoke;
+        font-family: sans-serif;
+    }
+    .ts{
+        color: aliceblue;
+        border: 1px solid white;
+        width: 370px;
+        padding: 10px;
+        font-size: 15px;
+    }
+    h2{
+        color: whitesmoke;
+    }
+    .btn{
+        margin-left: 200px;
+        text-decoration: none;
+        color: white;
+        border: 1px solid  red;
+        padding: 5px;
+    }
+    .btn:hover{
+        background-color: red;
+        columns: whitesmoke;
+        transition: 2s;
+    }
+    .btn a{
+        text-decoration: none;
+    }
+</style>
+<body>
+    <CENter> <h2>TODO APP FOR OIBSIP</h2> </CENter>
+    <div class="container-fluid">
+        
+        
+        <div class="buto">
+            <form method="Post">{%csrf_token%}
+            
+            <input type="text" name="u_des" id="" placeholder="                          Your Tasks">
+            <input type="submit" id="sub" class="submit" placeholder="submit">
+            
+        </form>
+        <div class="tasks">
+            {% for i in usermo %}
+            <h3 class="ts" >{{i.description}} <a href="{%url 'deleteid' id=i.id %}" class="btn">DELETE</a> </h3>
+            
+            {%endfor%}       
+
+        </div>
+        
+        </div>
+    </div>
+    
+</body>
+</html>
